@@ -7,3 +7,4 @@ spring:
       server:
         git:
           uri: https://github.com/rafaeljdesa/iot-platform-backend
+          default-label: master

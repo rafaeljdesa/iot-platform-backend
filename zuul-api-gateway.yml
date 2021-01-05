@@ -9,14 +9,18 @@ eureka:
     fetchRegistry: false
 
 zuul:
-  prefix: /api/v1
+  prefix: /api
+  ignored-services: *
   routes:
     admin-service:
       path: /services/admin/**
-      url: http://localhost:8081/spring-zuul-resource/admin
+      serviceId: admin-service
+      strip-prefix: false
     event-producer-service:
       path: /services/event-producer/**
-      url: http://localhost:8082/spring-zuul-resource/event-producer
+      serviceId: event-producer-service
+      strip-prefix: false
     event-consumer-service:
       path: /services/event-consumer/**
-      url: http://localhost:8083/spring-zuul-resource/event-consumer
+      serviceId: event-consumer-service
+      strip-prefix: false

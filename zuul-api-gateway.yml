@@ -1,0 +1,16 @@
+server:
+  port: 8081
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: true
+    fetchRegistry: false
+
+zuul:
+  prefix: /api
+  routes:
+    admin-service:
+      path: /services/admin/**
+      url: http://localhost:${server.port}/spring-zuul-resource/admin

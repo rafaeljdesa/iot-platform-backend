@@ -1,0 +1,13 @@
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: true
+    fetchRegistry: false
+
+mongo:
+  server: localhost
+  port: 27017
+  databaseName: admindb
+  connectionString: mongodb://${mongo.server}:${mongo.port}/${mongo.databaseName}
+  basePackage: br.com.iotplatform.adminservice

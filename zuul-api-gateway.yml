@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8080
 
 eureka:
   instance:
@@ -9,8 +9,14 @@ eureka:
     fetchRegistry: false
 
 zuul:
-  prefix: /api
+  prefix: /api/v1
   routes:
     admin-service:
       path: /services/admin/**
-      url: http://localhost:${server.port}/spring-zuul-resource/admin
+      url: http://localhost:8081/spring-zuul-resource/admin
+    event-producer-service:
+      path: /services/event-producer/**
+      url: http://localhost:8082/spring-zuul-resource/event-producer
+    event-consumer-service:
+      path: /services/event-consumer/**
+      url: http://localhost:8083/spring-zuul-resource/event-consumer

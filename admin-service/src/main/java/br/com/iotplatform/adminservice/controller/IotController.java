@@ -26,7 +26,7 @@ public class IotController {
     private IotService iotService;
 
     @PostMapping
-    public ResponseEntity<IotDTO> createIot(@Valid IotDTO iotDTO) {
+    public ResponseEntity<IotDTO> createIot(@RequestBody @Valid IotDTO iotDTO) {
 
         log.info("POST request to create Iot");
 
@@ -39,11 +39,13 @@ public class IotController {
     }
 
     @PutMapping
-    public ResponseEntity<IotDTO> updateIot(@Valid IotDTO iotDTO) {
+    public ResponseEntity<IotDTO> updateIot(@RequestBody @Valid IotDTO iotDTO) {
 
         log.info("PUT request to update Iot");
 
         if (iotDTO.getId() == null) return createIot(iotDTO);
+
+        iotDTO = iotService.save(iotDTO);
 
         return ResponseEntity.ok(iotDTO);
     }
@@ -61,6 +63,23 @@ public class IotController {
         }
 
         return ResponseEntity.ok(iotDTO);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteById(@PathVariable String id) {
+
+        log.info("DELETE request to delete Iot by id {}", id);
+
+        IotDTO iotDTO = iotService.findById(id);
+
+        if (iotDTO == null) {
+            log.info("Unable to find Iot by id {}", id);
+            return ResponseEntity.notFound().build();
+        }
+
+        iotService.deleteById(id);
+
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping("/all")

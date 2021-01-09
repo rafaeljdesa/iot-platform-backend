@@ -1,6 +1,17 @@
 version: '3'
 
 services:
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:3-management
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    ports:
+      - 5672:5672
+      - 15672:15672
+    volumes:
+      - ./docker-volumes/rabbitmq:/var/lib/rabbitmq
   admin-db:
     container_name: admin-db
     image: mongo

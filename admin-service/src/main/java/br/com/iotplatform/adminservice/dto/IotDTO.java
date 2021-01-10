@@ -1,5 +1,6 @@
 package br.com.iotplatform.adminservice.dto;
 
+import br.com.iotplatform.adminservice.enums.IotTypeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,7 +27,6 @@ public class IotDTO implements Serializable {
     private String model;
 
     @NotNull
-    private String type;
-
+    private IotTypeEnum type;
 
 }

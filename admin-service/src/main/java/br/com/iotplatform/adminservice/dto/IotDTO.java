@@ -14,6 +14,8 @@ public class IotDTO implements Serializable {
 
     private String id;
 
+    private String macAddress;
+
     @NotNull
     private String latitude;
 
@@ -26,7 +28,5 @@ public class IotDTO implements Serializable {
     @NotNull
     private String type;
 
-    @NotNull
-    private String macAddress;
 
 }

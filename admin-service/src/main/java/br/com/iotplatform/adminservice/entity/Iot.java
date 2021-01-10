@@ -1,5 +1,6 @@
 package br.com.iotplatform.adminservice.entity;
 
+import br.com.iotplatform.adminservice.enums.IotTypeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,6 +19,8 @@ public class Iot implements Serializable {
     @Id
     private String id;
 
+    private String macAddress;
+
     @NotNull
     private String latitude;
 
@@ -28,9 +31,6 @@ public class Iot implements Serializable {
     private String model;
 
     @NotNull
-    private String type;
-
-    @NotNull
-    private String macAddress;
+    private IotTypeEnum type;
 
 }

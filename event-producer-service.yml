@@ -1,0 +1,17 @@
+server:
+  port: 0
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: true
+    fetchRegistry: false
+
+rabbitmq:
+  hostName: localhost
+  userName: guest
+  password: guest
+  exchangeName: event-exchange
+  queueName: event-queue
+  routingKeyName: event-key

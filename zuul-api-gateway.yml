@@ -15,3 +15,7 @@ zuul:
       path: /admin/**
       serviceId: admin-service
       strip-prefix: false
+    event-producer-service:
+      path: /event-producer/**
+      serviceId: event-producer-service
+      strip-prefix: false

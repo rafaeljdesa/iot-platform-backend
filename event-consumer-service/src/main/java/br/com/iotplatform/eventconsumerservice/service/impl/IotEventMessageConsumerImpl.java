@@ -9,8 +9,6 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDateTime;
-
 @Component
 public class IotEventMessageConsumerImpl implements IotEventMessageConsumer {
 
@@ -22,7 +20,7 @@ public class IotEventMessageConsumerImpl implements IotEventMessageConsumer {
     @Override
     @RabbitListener(queues = "event-queue")
     public void consumeMessage(IotEventDTO message) {
-        log.info("Consuming message from queue event-queue - {}", LocalDateTime.now());
+        log.info("Consuming message from queue event-queue");
         iotEventService.save(message);
     }
 }

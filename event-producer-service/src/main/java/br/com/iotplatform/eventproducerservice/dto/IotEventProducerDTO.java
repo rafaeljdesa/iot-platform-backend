@@ -1,5 +1,7 @@
 package br.com.iotplatform.eventproducerservice.dto;
 
+import br.com.iotplatform.eventproducerservice.utils.CustomLocalDateTimeSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,6 +22,7 @@ public class IotEventProducerDTO implements Serializable {
 
     private String pressureLevel;
 
+    @JsonSerialize(using = CustomLocalDateTimeSerializer.class)
     private LocalDateTime eventDateTime = LocalDateTime.now();
 
 }

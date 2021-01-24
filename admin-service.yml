@@ -11,3 +11,10 @@ mongo:
   databaseName: admindb
   connectionString: mongodb://${mongo.server}:${mongo.port}/${mongo.databaseName}
   basePackage: br.com.iotplatform.adminservice
+
+spring:
+  sleuth:
+    sampler:
+      probability: 1.0
+  zipkin:
+    base-url: http://localhost:9411/

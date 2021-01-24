@@ -68,6 +68,11 @@ services:
       - events-network
     depends_on:
       - events-db
+  zipkin:
+    container_name: zipkin
+    image: openzipkin/zipkin
+    ports:
+    - 9411:9411
 
 networks:
   admin-network:

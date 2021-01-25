@@ -73,6 +73,21 @@ services:
     image: openzipkin/zipkin
     ports:
     - 9411:9411
+  elk:
+    container_name: elk
+    image: sebp/elk
+    ports:
+      - 5601:5601 # Kibana
+      - 9200:9200 # ElasticSearch
+      - 5044:5044 # LogStash
+    volumes:
+      - ./docker-volumes/elk/logstash/30-output.conf:/etc/logstash/conf.d/30-output.conf
+      - ./docker-volumes/elk/logstash/02-beats-input.conf:/etc/logstash/conf.d/02-beats-input.conf
+      - ./docker-volumes/elk/elasticsearch:/var/lib/elasticsearch
+
+    # Configuração mínima de memória:
+    # wsl -d docker-desktop
+    # sysctl -w vm.max_map_count=262144
 
 networks:
   admin-network:

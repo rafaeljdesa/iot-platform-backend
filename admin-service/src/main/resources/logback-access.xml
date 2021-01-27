@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="logstash-access" class="net.logstash.logback.appender.LogstashAccessTcpSocketAppender">
+        <destination>localhost:5044</destination>
+        <encoder class="net.logstash.logback.encoder.LogstashAccessEncoder">
+            <customFields>{"app_name":"admin-service"}</customFields>
+        </encoder>
+    </appender>
+    <!--<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>common</pattern>
+        </encoder>
+    </appender>
+    <appender-ref ref="CONSOLE"/>-->
+    <appender-ref ref="logstash-access"/>
+</configuration>

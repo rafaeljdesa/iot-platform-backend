@@ -3,24 +3,8 @@
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
     <appender name="logstash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
         <destination>localhost:5044</destination>
-        <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
-            <providers>
-                <mdc/>
-                <context/>
-                <version/>
-                <logLevel/>
-                <loggerName/>
-                <message/>
-                <pattern>
-                    <pattern>
-                        {
-                        "appName": "admin-service"
-                        }
-                    </pattern>
-                </pattern>
-                <threadName/>
-                <stackTrace/>
-            </providers>
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <customFields>{"app_name":"admin-service"}</customFields>
         </encoder>
     </appender>
     <root level="INFO">

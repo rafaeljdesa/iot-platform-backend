@@ -1,26 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration debug="false">
+<configuration>
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
     <appender name="logstash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
         <destination>localhost:5044</destination>
-        <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
-            <providers>
-                <mdc/>
-                <context/>
-                <version/>
-                <logLevel/>
-                <loggerName/>
-                <message/>
-                <pattern>
-                    <pattern>
-                        {
-                        "appName": "zuul-api-gateway"
-                        }
-                    </pattern>
-                </pattern>
-                <threadName/>
-                <stackTrace/>
-            </providers>
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <customFields>{"app_name":"zuul-api-gateway"}</customFields>
         </encoder>
     </appender>
     <root level="INFO">
@@ -28,5 +12,5 @@
         <appender-ref ref="logstash"/>
     </root>
     <logger name="org.springframework" level="INFO"/>
-    <logger name="com.sohan" level="INFO"/>
+    <logger name="br.com.iotplatform" level="INFO"/>
 </configuration>

@@ -4,7 +4,7 @@
     <appender name="logstash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
         <destination>localhost:5044</destination>
         <encoder class="net.logstash.logback.encoder.LogstashEncoder">
-            <customFields>{"app_name":"admin-service"}</customFields>
+            <customFields>{"app_name":"eureka-server"}</customFields>
         </encoder>
     </appender>
     <root level="INFO">

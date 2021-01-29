@@ -58,7 +58,7 @@ public class IotController {
         IotDTO iotDTO = iotService.findById(id);
 
         if (iotDTO == null) {
-            log.info("Unable to find Iot by id {}", id);
+            log.error("Unable to find Iot by id {}", id);
             return ResponseEntity.notFound().build();
         }
 
@@ -73,7 +73,7 @@ public class IotController {
         IotDTO iotDTO = iotService.findById(id);
 
         if (iotDTO == null) {
-            log.info("Unable to find Iot by id {}", id);
+            log.error("Unable to find Iot by id {}", id);
             return ResponseEntity.notFound().build();
         }
 

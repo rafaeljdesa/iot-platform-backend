@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 @Data
 @AllArgsConstructor
@@ -22,10 +23,10 @@ public class Iot implements Serializable {
     private String macAddress;
 
     @NotNull
-    private String latitude;
+    private BigDecimal latitude;
 
     @NotNull
-    private String longitude;
+    private BigDecimal longitude;
 
     @NotNull
     private String model;

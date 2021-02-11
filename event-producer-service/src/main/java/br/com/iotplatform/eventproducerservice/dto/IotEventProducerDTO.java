@@ -8,19 +8,16 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Map;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class IotEventProducerDTO implements Serializable {
 
-    private String macAddress;
+    private String deviceId;
 
-    private String temperature;
-
-    private String waterLevel;
-
-    private String pressureLevel;
+    private Map<String, Object> eventData;
 
     @JsonSerialize(using = CustomLocalDateTimeSerializer.class)
     private LocalDateTime eventDateTime = LocalDateTime.now();

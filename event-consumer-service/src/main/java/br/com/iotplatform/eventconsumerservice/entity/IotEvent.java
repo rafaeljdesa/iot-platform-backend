@@ -3,11 +3,13 @@ package br.com.iotplatform.eventconsumerservice.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Map;
 
 @Data
 @AllArgsConstructor
@@ -16,15 +18,11 @@ import java.time.LocalDateTime;
 public class IotEvent implements Serializable {
 
     @Id
-    private String id;
+    private ObjectId _id;
 
-    private String macAddress;
+    private String deviceId;
 
-    private String temperature;
-
-    private String waterLevel;
-
-    private String pressureLevel;
+    private Map<String, Object> eventData;
 
     private LocalDateTime eventDateTime;
 

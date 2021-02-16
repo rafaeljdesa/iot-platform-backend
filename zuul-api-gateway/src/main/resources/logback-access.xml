@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
+    <property name="LOGSTASH_HOST" value="34.95.173.42:5044" />
     <appender name="logstash-access" class="net.logstash.logback.appender.LogstashAccessTcpSocketAppender">
-        <destination>${logstash.host}:${logstash.port}</destination>
+        <destination>${LOGSTASH_HOST}</destination>
         <encoder class="net.logstash.logback.encoder.LogstashAccessEncoder">
             <customFields>{"app_name":"zuul-api-gateway"}</customFields>
         </encoder>

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
+    <property name="LOGSTASH_HOST" value="34.95.173.42:5044" />
     <appender name="logstash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
-        <destination>${logstash.host}:${logstash.port}</destination>
+        <destination>${LOGSTASH_HOST}</destination>
         <encoder class="net.logstash.logback.encoder.LogstashEncoder">
             <customFields>{"app_name":"eureka-server"}</customFields>
         </encoder>

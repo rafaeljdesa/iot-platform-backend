@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.Map;
 
 @Data
@@ -20,6 +21,6 @@ public class IotEventProducerDTO implements Serializable {
     private Map<String, Object> eventData;
 
     @JsonSerialize(using = CustomLocalDateTimeSerializer.class)
-    private LocalDateTime eventDateTime = LocalDateTime.now();
+    private LocalDateTime eventDateTime = LocalDateTime.now(ZoneOffset.UTC);
 
 }

@@ -19,7 +19,7 @@ import java.util.Map;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document(indexName = "iot_events")
+@Document(indexName = "iot-platform-events")
 public class IotEvent implements Serializable {
 
     @Id
@@ -29,7 +29,7 @@ public class IotEvent implements Serializable {
 
     private Map<String, Object> eventData;
 
-    @Field(type = FieldType.Date, format = DateFormat.custom, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+    @Field(type = FieldType.Date, format = DateFormat.custom, pattern = "yyyy-MM-dd HH:mm:ss.SSS")
     private LocalDateTime eventDateTime;
 
 }

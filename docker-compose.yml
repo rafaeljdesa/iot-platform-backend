@@ -24,66 +24,39 @@ services:
       - ./docker-volumes/admin-db:/data/db
     networks:
       - admin-network
-  admin-db-ui:
-    container_name: admin-db-ui
-    image: mongo-express
-    ports:
-      - 8081:8081
-    environment:
-      ME_CONFIG_MONGODB_PORT: 27017
-      ME_CONFIG_MONGODB_SERVER: admin-db
-      ME_CONFIG_MONGODB_ADMINUSERNAME: ''
-      ME_CONFIG_MONGODB_ADMINPASSWORD: ''
-    links:
-      - admin-db
-    networks:
-      - admin-network
-    depends_on:
-      - admin-db
-  events-db:
-    container_name: events-db
-    image: mongo
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: ''
-      MONGO_INITDB_ROOT_PASSWORD: ''
-    ports:
-      - 27018:27017
-    volumes:
-      - ./docker-volumes/events-db:/data/db
-    networks:
-      - events-network
-  events-db-ui:
-    container_name: events-db-ui
-    image: mongo-express
-    ports:
-      - 8082:8081
-    environment:
-      ME_CONFIG_MONGODB_PORT: 27017
-      ME_CONFIG_MONGODB_SERVER: events-db
-      ME_CONFIG_MONGODB_ADMINUSERNAME: ''
-      ME_CONFIG_MONGODB_ADMINPASSWORD: ''
-    links:
-      - events-db
-    networks:
-      - events-network
-    depends_on:
-      - events-db
+#  admin-db-ui:
+#    container_name: admin-db-ui
+#    image: mongo-express
+#    ports:
+#      - 8081:8081
+#    environment:
+#      ME_CONFIG_MONGODB_PORT: 27017
+#      ME_CONFIG_MONGODB_SERVER: admin-db
+#      ME_CONFIG_MONGODB_ADMINUSERNAME: ''
+#      ME_CONFIG_MONGODB_ADMINPASSWORD: ''
+#    links:
+#      - admin-db
+#    networks:
+#      - admin-network
+#    depends_on:
+#      - admin-db
   zipkin:
     container_name: zipkin
     image: openzipkin/zipkin
     ports:
     - 9411:9411
-  elk:
-    container_name: elk
-    image: sebp/elk
-    ports:
-      - 5601:5601 # Kibana
-      - 9200:9200 # ElasticSearch
-      - 5044:5044 # LogStash
-    volumes:
-      - ./docker-volumes/elk/logstash/30-output.conf:/etc/logstash/conf.d/30-output.conf
-      - ./docker-volumes/elk/logstash/02-beats-input.conf:/etc/logstash/conf.d/02-beats-input.conf
-      - ./docker-volumes/elk/elasticsearch:/var/lib/elasticsearch
+#  elk:
+#    container_name: elk
+#    #image: sebp/elk
+#    build: ./docker-volumes/elk/
+#    ports:
+#      - 5601:5601 # Kibana
+#      - 9200:9200 # ElasticSearch
+#      - 5044:5044 # LogStash
+#    volumes:
+#      #- ./docker-volumes/elk/logstash/30-output.conf:/etc/logstash/conf.d/30-output.conf
+#      #- ./docker-volumes/elk/logstash/02-beats-input.conf:/etc/logstash/conf.d/02-beats-input.conf
+#      - ./docker-volumes/elk/elasticsearch:/var/lib/elasticsearch
 
     # Configuração mínima de memória:
     # wsl -d docker-desktop
@@ -91,6 +64,4 @@ services:
 
 networks:
   admin-network:
-    driver: bridge
-  events-network:
     driver: bridge

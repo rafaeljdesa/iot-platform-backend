@@ -8,3 +8,7 @@ spring:
         git:
           uri: https://github.com/rafaeljdesa/iot-platform-backend
           default-label: master
+
+logstash:
+  host: 34.95.173.42
+  port: 5044

@@ -4,3 +4,7 @@ eureka:
   client:
     registerWithEureka: false # false for server configuration
     fetchRegistry: false
+
+logstash:
+  host: 34.95.173.42
+  port: 5044

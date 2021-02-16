@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <appender name="logstash-access" class="net.logstash.logback.appender.LogstashAccessTcpSocketAppender">
-        <destination>localhost:5044</destination>
+        <destination>${logstash.host}:${logstash.port}</destination>
         <encoder class="net.logstash.logback.encoder.LogstashAccessEncoder">
             <customFields>{"app_name":"event-producer-service"}</customFields>
         </encoder>

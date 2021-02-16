@@ -12,6 +12,10 @@ mongo:
   connectionString: mongodb://${mongo.server}:${mongo.port}/${mongo.databaseName}
   basePackage: br.com.iotplatform.adminservice
 
+logstash:
+  host: 34.95.173.42
+  port: 5044
+
 spring:
   sleuth:
     sampler:

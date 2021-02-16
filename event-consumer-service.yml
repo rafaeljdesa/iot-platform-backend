@@ -13,12 +13,12 @@ rabbitmq:
   queueName: event-queue
   routingKeyName: event-key
 
-mongo:
-  server: localhost
-  port: 27018
-  databaseName: eventsdb
-  connectionString: mongodb://${mongo.server}:${mongo.port}/${mongo.databaseName}
-  basePackage: br.com.iotplatform.eventconsumerservice
+elasticsearch:
+  host: 34.95.173.42
+  port: 9200
+logstash:
+  host: 34.95.173.42
+  port: 5044
 
 spring:
   sleuth:
